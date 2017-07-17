@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.delete.DeleteXml">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="377.0" prefWidth="577.0">
+         <children>
+            <HBox prefHeight="54.0" prefWidth="577.0">
+               <children>
+                  <TextField fx:id="bookid" prefHeight="62.0" prefWidth="444.0" promptText="Book Id" />
+                  <Button fx:id="onidsubmit" mnemonicParsing="false" onAction="#submitb" prefHeight="53.0" prefWidth="133.0" text="Submit" />
+               </children>
+            </HBox>
+            <TextArea fx:id="bookabout" prefHeight="101.0" prefWidth="577.0" />
+            <Button fx:id="deletebook" mnemonicParsing="false" onAction="#deleteb" prefHeight="31.0" prefWidth="577.0" text="Delete Book" textFill="#320ed0" />
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="577.0">
+               <children>
+                  <TextField fx:id="memberid" prefHeight="62.0" prefWidth="444.0" promptText="Member Id" />
+                  <Button fx:id="onid2submit" mnemonicParsing="false" onAction="#submitm" prefHeight="57.0" prefWidth="141.0" text="Submit" />
+               </children>
+            </HBox>
+            <TextArea fx:id="memberabout" layoutX="10.0" layoutY="64.0" prefHeight="111.0" prefWidth="577.0" />
+            <Button fx:id="deletemember" layoutX="10.0" layoutY="165.0" mnemonicParsing="false" onAction="#deletem" prefHeight="31.0" prefWidth="577.0" text="Delete Member" textFill="#710dc3" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

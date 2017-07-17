@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_librarymanagement" default="compile.module.librarymanagement">
+  <dirname property="module.librarymanagement.basedir" file="${ant.file.module_librarymanagement}"/>
+  
+  <property name="module.jdk.home.librarymanagement" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.librarymanagement" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.librarymanagement" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.librarymanagement" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="librarymanagement.output.dir" value="${module.librarymanagement.basedir}/out/production/LibraryManagement"/>
+  <property name="librarymanagement.testoutput.dir" value="${module.librarymanagement.basedir}/out/test/LibraryManagement"/>
+  
+  <path id="librarymanagement.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="librarymanagement.module.production.classpath">
+    <path refid="${module.jdk.classpath.librarymanagement}"/>
+  </path>
+  
+  <path id="librarymanagement.runtime.production.module.classpath">
+    <pathelement location="${librarymanagement.output.dir}"/>
+  </path>
+  
+  <path id="librarymanagement.module.classpath">
+    <path refid="${module.jdk.classpath.librarymanagement}"/>
+    <pathelement location="${librarymanagement.output.dir}"/>
+  </path>
+  
+  <path id="librarymanagement.runtime.module.classpath">
+    <pathelement location="${librarymanagement.testoutput.dir}"/>
+    <pathelement location="${librarymanagement.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.librarymanagement">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.librarymanagement">
+    <patternset refid="excluded.from.module.librarymanagement"/>
+  </patternset>
+  
+  <path id="librarymanagement.module.sourcepath">
+    <dirset dir="${module.librarymanagement.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.librarymanagement" depends="compile.module.librarymanagement.production,compile.module.librarymanagement.tests" description="Compile module LibraryManagement"/>
+  
+  <target name="compile.module.librarymanagement.production" depends="register.custom.compilers" description="Compile module LibraryManagement; production classes">
+    <mkdir dir="${librarymanagement.output.dir}"/>
+    <javac2 destdir="${librarymanagement.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.librarymanagement}/javac">
+      <compilerarg line="${compiler.args.librarymanagement}"/>
+      <bootclasspath refid="librarymanagement.module.bootclasspath"/>
+      <classpath refid="librarymanagement.module.production.classpath"/>
+      <src refid="librarymanagement.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.librarymanagement"/>
+    </javac2>
+    
+    <copy todir="${librarymanagement.output.dir}">
+      <fileset dir="${module.librarymanagement.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.librarymanagement.tests" depends="register.custom.compilers,compile.module.librarymanagement.production" description="compile module LibraryManagement; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.librarymanagement" description="cleanup module">
+    <delete dir="${librarymanagement.output.dir}"/>
+    <delete dir="${librarymanagement.testoutput.dir}"/>
+  </target>
+</project>

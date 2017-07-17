@@ -1,0 +1,6 @@
+.button{
+    -fx-background-color: ghostwhite;
+}
+.button:hover{
+    -fx-background-color: bisque;
+}

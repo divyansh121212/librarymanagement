@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addbook.Controller">
+  <children>
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="500.0" prefWidth="502.0">
+      <children>
+        <TextField fx:id="id1" id="id1" prefHeight="66.0" prefWidth="502.0" promptText="Book Id">
+          <VBox.margin>
+            <Insets left="10.0" right="10.0" top="20.0" fx:id="x1" />
+          </VBox.margin>
+               <font>
+                  <Font name="Broadway" size="36.0" />
+               </font>
+        </TextField>
+        <TextField id="title" fx:id="title" prefHeight="66.0" prefWidth="502.0" promptText="Book Title" VBox.margin="$x1">
+               <font>
+                  <Font name="Broadway" size="36.0" />
+               </font></TextField>
+        <TextField id="author" fx:id="author" prefHeight="66.0" prefWidth="502.0" promptText="Book Author" VBox.margin="$x1">
+               <font>
+                  <Font name="Broadway" size="36.0" />
+               </font></TextField>
+        <TextField id="publisher" fx:id="publisher" prefHeight="66.0" prefWidth="502.0" promptText="Publisher" VBox.margin="$x1">
+               <font>
+                  <Font name="Broadway" size="36.0" />
+               </font></TextField>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <children>
+                  <Button id="save" mnemonicParsing="false" onAction="#addbook" prefHeight="100.0" prefWidth="254.0" stylesheets="@addbook.css" text="SAVE">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="Century" size="36.0" />
+                     </font>
+                  </Button>
+                  <Button id="cancel" fx:id="cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="100.0" prefWidth="246.0" stylesheets="@addbook.css" text="CANCEL">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="Century" size="34.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
